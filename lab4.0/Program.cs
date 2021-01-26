@@ -19,6 +19,17 @@ namespace lab4._0
             VerticalLine v3 = new VerticalLine(1, 7, 12, '*');
             v3.Draw();
 
+            HorizontalLine h5 = new HorizontalLine(1, 20, 14, '/');
+            h5.Draw();
+            Console.WriteLine();
+            HorizontalLine h4 = new HorizontalLine(1, 8, 16, '*');
+            h4.Draw();
+            HorizontalLine h6 = new HorizontalLine(1, 8, 20, '*');
+            h6.Draw();
+            VerticalLine v4 = new VerticalLine(17, 19, 1, '*');
+            v4.Draw();
+            VerticalLine v5 = new VerticalLine(17, 19, 8, '*');
+            v5.Draw();
             Console.ReadKey();
         }
     }
