@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
 namespace lab4._0
-{   
-        class Walls
+{
+    class Walls
         {
 		List<Figure> wallList;
 
