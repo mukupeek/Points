@@ -4,8 +4,8 @@ namespace lab4._0
 {
     class Point
     {
-        int x, y;
-        char sym;
+        public int x, y;
+        public char sym;
 
         public Point(int x, int y, char sym)
         {

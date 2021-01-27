@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace lab4._0
@@ -19,7 +20,7 @@ namespace lab4._0
             }
         }
         public void Move()
-        {
+        {           
             Point tail = pList.First();
             pList.Remove(tail);
             Point head = GetNextPoint();
@@ -29,14 +30,52 @@ namespace lab4._0
             head.Draw();
         }
 
-        private Point GetNextPoint()
+        public Point GetNextPoint()
         {
             Point head = pList.Last();
             Point nextPoint = new Point(head);
             nextPoint.Move(1, direction);
             return nextPoint;
         }
-
+        public void HandleKey(ConsoleKey key)
+        {
+            if (key == ConsoleKey.LeftArrow)
+                direction = Direction.LEFT;
+            else if (key == ConsoleKey.RightArrow)
+                direction = Direction.RIGHT;
+            else if (key == ConsoleKey.DownArrow)
+                direction = Direction.DOWN;
+            else if (key == ConsoleKey.UpArrow)
+                direction = Direction.UP;
+        }
+        public bool Eat(Point food)
+        {
+            Point head = GetNextPoint();
+            if (head.IsHit(food))
+            {
+                food.sym = head.sym;
+                pList.Add(food);
+                return true;
+            }
+            else
+                return false;
+        }
+        public bool IsHit(Point food)
+        {
+            Point head = GetNextPoint();
+            foreach(var p in pList)
+            {
+                if (!head.IsHit(food))
+                {
+                    if(head.IsHit(p))
+                    return true;
+                }
+            }            
+                    return false;        
+        }  
+            
+        
     }
-
 }
+
+
